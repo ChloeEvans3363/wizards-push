@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
+    public void Awake()
+    {
+        instance = this;
+    }
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private int finishPoints;
+    [SerializeField] private GameObject winText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +25,25 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Move(GameObject objectToMove, Vector2 direction)
+    {
+        objectToMove.transform.Translate(direction);
+        objectToMove.GetComponent<Direction>().SetDirection(direction);
+    }
+
+    public void FinishPointReached()
+    {
+        finishPoints--;
+        if(finishPoints == 0)
+        {
+            winText.SetActive(true);
+        }
+    }
+
+    public void FinishPointVoided()
+    {
+        finishPoints++;
     }
 }
