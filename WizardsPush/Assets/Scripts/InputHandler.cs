@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         MovementKeys();
+        Tailsmans();
     }
 
     public void MovementKeys()
@@ -29,6 +30,19 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             GameManager.instance.Move(player, new Vector2(0, -1));
+        }
+    }
+
+    public void Tailsmans()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            player.GetComponent<Player>().pull();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            player.GetComponent<Player>().push();
         }
     }
 }

@@ -18,36 +18,76 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
-        pull();
+
     }
 
     // Push
     public void pull()
     {
+        // Checks each box on the level
         foreach(GameObject box in boxes)
         {
+            // If the box has the same x position then the y position will change to move the box closer
             if(box.transform.position.x == transform.position.x)
             {
-                if(box.transform.position.y < transform.position.y)
+                // depending on if the box is to the right of the left of the player the box will move the direction to get closer
+                if (box.transform.position.y < transform.position.y - 1)
                 {
-                    
+                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y + 1, box.transform.position.z);
                 }
-                else
+                else if (box.transform.position.y > transform.position.y + 1)
                 {
-
+                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y - 1, box.transform.position.z);
                 }
             }
 
-            else if(box.transform.position.y == transform.position.y)
+            // If the box has the same y position then the x position will change to move the box closer
+            else if (box.transform.position.y == transform.position.y)
             {
-
+                // depending on if the box is above or below the player the box will move the direction to get closer
+                if (box.transform.position.x < transform.position.x - 1)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x + 1, box.transform.position.y, box.transform.position.z);
+                }
+                else if(box.transform.position.x > transform.position.x + 1)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x - 1, box.transform.position.y, box.transform.position.z);
+                }
             }
         }
     }
 
     public void push()
     {
-
+        // Checks each box on the level
+        foreach (GameObject box in boxes)
+        {
+            // If the box has the same x position then the y position will change to move the box further away
+            if (box.transform.position.x == transform.position.x)
+            {
+                // depending on if the box is to the right of the left of the player the box will move the direction to get further
+                if (box.transform.position.y < transform.position.y)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y - 1, box.transform.position.z);
+                }
+                else if (box.transform.position.y > transform.position.y)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y + 1, box.transform.position.z);
+                }
+            }
+            // If the box has the same y position then the x position will change to move the box further away
+            else if (box.transform.position.y == transform.position.y)
+            {
+                // depending on if the box is above or below the player the box will move the direction to get further
+                if (box.transform.position.x < transform.position.x)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x - 1, box.transform.position.y, box.transform.position.z);
+                }
+                else if (box.transform.position.x > transform.position.x)
+                {
+                    box.transform.position = new Vector3(box.transform.position.x + 1, box.transform.position.y, box.transform.position.z);
+                }
+            }
+        }
     }
 }
