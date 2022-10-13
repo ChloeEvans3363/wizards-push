@@ -40,7 +40,7 @@ public class InputHandler : MonoBehaviour
             player.GetComponent<Player>().pull();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             player.GetComponent<Player>().push();
         }
