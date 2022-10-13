@@ -32,7 +32,7 @@ public class ObjectPositionRounder : MonoBehaviour
         //plus a 0.5 offset for tiling reasons.
         //float newX = Mathf.Round(transform.position.x) + 0.5f;
         //float newY = Mathf.Round(transform.position.y) + 0.5f;
-        //transform.position = new Vector2(newX, newY);
+        transform.position = new Vector2(newX, newY);
     }
     /*public void RoundSize () {
         float newX = Mathf.Round(transform.localScale.x);

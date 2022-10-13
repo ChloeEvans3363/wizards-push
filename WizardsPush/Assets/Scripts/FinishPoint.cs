@@ -5,6 +5,8 @@ using UnityEngine;
 public class FinishPoint : MonoBehaviour
 {
     [SerializeField] private bool finished = false;
+    [SerializeField] private Sprite unfinishedSprite;
+    [SerializeField] private Sprite finishedSprite;
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
@@ -12,6 +14,7 @@ public class FinishPoint : MonoBehaviour
         {
             finished = true;
             GameManager.instance.FinishPointReached();
+            gameObject.GetComponent<SpriteRenderer>().sprite = finishedSprite;
         }
     }
 
@@ -21,6 +24,7 @@ public class FinishPoint : MonoBehaviour
         {
             finished = false;
             GameManager.instance.FinishPointVoided();
+            gameObject.GetComponent<SpriteRenderer>().sprite = unfinishedSprite;
         }
     }
 }
