@@ -14,17 +14,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private int finishPoints;
     [SerializeField] private GameObject winText;
+    [SerializeField] private GameObject[] boxes;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        finishPoints = GameObject.FindObjectsOfType<FinishPoint>().Length;
     }
 
     public void Move(GameObject objectToMove, Vector2 direction)
