@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         finishPoints = GameObject.FindObjectsOfType<FinishPoint>().Length;
+        boxes = GameObject.FindGameObjectsWithTag("Box");
     }
 
     public void Move(GameObject objectToMove, Vector2 direction)
@@ -38,5 +39,10 @@ public class GameManager : MonoBehaviour
     public void FinishPointVoided()
     {
         finishPoints++;
+    }
+
+    public GameObject[] GetBoxes()
+    {
+        return boxes;
     }
 }

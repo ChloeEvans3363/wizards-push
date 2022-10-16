@@ -5,16 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public GameObject[] boxes;
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(boxes.Length == 0)
-        {
-            boxes = GameObject.FindGameObjectsWithTag("Box");
-        }
-    }
-
     public bool ValidateMove(Vector2 direction)
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
@@ -38,7 +28,7 @@ public class Player : MonoBehaviour
     public void Pull()
     {
         // Checks each box on the level
-        foreach(GameObject box in boxes)
+        foreach(GameObject box in GameManager.instance.GetBoxes())
         {
             // If the box has the same x position then the y position will change to move the box closer
             if(box.transform.position.x == transform.position.x)
@@ -74,7 +64,7 @@ public class Player : MonoBehaviour
     public void Push()
     {
         // Checks each box on the level
-        foreach (GameObject box in boxes)
+        foreach (GameObject box in GameManager.instance.GetBoxes())
         {
             // If the box has the same x position then the y position will change to move the box further away
             if (box.transform.position.x == transform.position.x)
