@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public void Move(GameObject objectToMove, Vector2 direction)
     {
         objectToMove.transform.Translate(direction);
-        objectToMove.GetComponent<Direction>().SetDirection(direction);
     }
 
     public void FinishPointReached()

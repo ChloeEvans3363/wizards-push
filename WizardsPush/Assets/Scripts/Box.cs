@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D otherCollider)
+    public bool ValidateMove(Vector2 direction)
     {
-        GameObject otherObject = otherCollider.gameObject;
+        Vector2 pos = transform.position;
+        RaycastHit2D ray = Physics2D.Raycast(pos + direction, direction);
 
-        Direction direction = otherObject.GetComponent<Direction>();
-
-        if (direction)
+        if (Vector2.Distance(ray.point, transform.position) > 1 || ray.collider.gameObject.GetComponent<FinishPoint>())
         {
-            GameManager.instance.Move(gameObject, direction.GetDirection());
+            return true;
         }
+
+        return false;
     }
 }

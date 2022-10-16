@@ -15,14 +15,27 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool ValidateMove(Vector2 direction)
     {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
 
+        GameObject otherObject = ray.collider.gameObject;
+
+        if (Vector2.Distance(ray.point, transform.position) > 1)
+        {
+            return true;
+        }
+        else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(direction))
+        {
+            GameManager.instance.Move(ray.collider.gameObject, direction);
+            return true;
+        }
+
+        return false;
     }
 
-    // Push
-    public void pull()
+    // Pull
+    public void Pull()
     {
         // Checks each box on the level
         foreach(GameObject box in boxes)
@@ -57,7 +70,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void push()
+    // Push
+    public void Push()
     {
         // Checks each box on the level
         foreach (GameObject box in boxes)

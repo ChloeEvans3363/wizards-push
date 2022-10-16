@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private Player player;
+    [SerializeField] private Vector2 direction;
 
     // Update is called once per frame
     void Update()
@@ -17,19 +18,35 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            GameManager.instance.Move(player, new Vector2(-1, 0));
+            direction = new Vector2(-1, 0);
+            if (player.ValidateMove(direction))
+            {
+                GameManager.instance.Move(player.gameObject, direction);
+            }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            GameManager.instance.Move(player, new Vector2(0, 1));
+            direction = new Vector2(0, 1);
+            if (player.ValidateMove(direction))
+            {
+                GameManager.instance.Move(player.gameObject, direction);
+            }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            GameManager.instance.Move(player, new Vector2(1, 0));
+            direction = new Vector2(1, 0);
+            if (player.ValidateMove(direction))
+            {
+                GameManager.instance.Move(player.gameObject, direction);
+            }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            GameManager.instance.Move(player, new Vector2(0, -1));
+            direction = new Vector2(0, -1);
+            if (player.ValidateMove(direction))
+            {
+                GameManager.instance.Move(player.gameObject, direction);
+            }
         }
     }
 
@@ -37,12 +54,12 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            player.GetComponent<Player>().pull();
+            player.Pull();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            player.GetComponent<Player>().push();
+            player.Push();
         }
     }
 }
