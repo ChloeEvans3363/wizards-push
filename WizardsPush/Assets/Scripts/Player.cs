@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Vector2 direction = new Vector2(0, 1);
 
     public AudioManager AudioManager;
 
     public bool ValidateMove(Vector2 direction)
+    public bool ValidateMove(Vector2 directionToCheck)
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, directionToCheck);
 
         GameObject otherObject = ray.collider.gameObject;
 
@@ -17,9 +19,9 @@ public class Player : MonoBehaviour
         {
             return true;
         }
-        else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(direction))
+        else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(directionToCheck))
         {
-            GameManager.instance.Move(ray.collider.gameObject, direction);
+            GameManager.instance.Move(ray.collider.gameObject, directionToCheck);
             return true;
         }
 
@@ -128,5 +130,33 @@ public class Player : MonoBehaviour
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(1, 0));
         }
+    }
+
+    public void SetDirection(Vector2 newDirection)
+    {
+        direction = newDirection;
+    }
+
+    public void Teleport()
+    {
+        if (ValidateTeleport())
+        {
+            GameManager.instance.Move(gameObject, direction * 2);
+        }
+    }
+
+    public bool ValidateTeleport()
+    {
+        //moveDistance accounts for teleport
+        RaycastHit2D ray = Physics2D.Raycast((Vector2) transform.position + (direction * 2), direction);
+
+        GameObject otherObject = ray.collider.gameObject;
+
+        if (Vector2.Distance(ray.point, transform.position) > 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
             direction = new Vector2(-1, 0);
             if (player.ValidateMove(direction))
             {
-                GameManager.instance.Move(player.gameObject, direction);
+                MovePlayer();
             }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -29,7 +29,7 @@ public class InputHandler : MonoBehaviour
             direction = new Vector2(0, 1);
             if (player.ValidateMove(direction))
             {
-                GameManager.instance.Move(player.gameObject, direction);
+                MovePlayer();
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -37,7 +37,7 @@ public class InputHandler : MonoBehaviour
             direction = new Vector2(1, 0);
             if (player.ValidateMove(direction))
             {
-                GameManager.instance.Move(player.gameObject, direction);
+                MovePlayer();
             }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -45,7 +45,7 @@ public class InputHandler : MonoBehaviour
             direction = new Vector2(0, -1);
             if (player.ValidateMove(direction))
             {
-                GameManager.instance.Move(player.gameObject, direction);
+                MovePlayer();
             }
         }
     }
@@ -62,5 +62,17 @@ public class InputHandler : MonoBehaviour
         {
             player.Push();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            player.Teleport();
+        }
+    }
+
+    //helper methods
+    public void MovePlayer()
+    {
+        GameManager.instance.Move(player.gameObject, direction);
+        player.SetDirection(direction);
     }
 }

@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
         boxes = GameObject.FindGameObjectsWithTag("Box");
     }
 
-    public void Move(GameObject objectToMove, Vector2 direction)
+    public void Move(GameObject objectToMove, Vector2 vector)
     {
-        objectToMove.transform.Translate(direction);
+        objectToMove.transform.Translate(vector);
     }
 
     public void FinishPointReached()
