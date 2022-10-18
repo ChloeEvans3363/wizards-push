@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public AudioManager AudioManager;
 
     public void Awake()
     {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public void FinishPointReached()
     {
+        //TargetDown sound cue
+        AudioManager.playConditional(1, false);
         finishPoints--;
         if(finishPoints == 0)
         {
@@ -38,6 +41,9 @@ public class GameManager : MonoBehaviour
 
     public void FinishPointVoided()
     {
+        //TargetUp sound cue
+        AudioManager.playConditional(2, false);
+
         finishPoints++;
     }
 

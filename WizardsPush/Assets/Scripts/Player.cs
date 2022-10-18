@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public AudioManager AudioManager;
+
     public bool ValidateMove(Vector2 direction)
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
     // Pull
     public void Pull()
     {
+        //Play pull sound
+        AudioManager.playConditional(4, false);
+
         // Checks each box on the level
         foreach(GameObject box in GameManager.instance.GetBoxes())
         {
@@ -67,6 +72,11 @@ public class Player : MonoBehaviour
     // Test Pull rework. It works but the box will get pulled on top of the player
     public void test()
     {
+        //Play push sound
+        AudioManager.playConditional(3, false);
+
+        // Checks each box on the level
+        foreach (GameObject box in GameManager.instance.GetBoxes())
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0,-1)))
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, -1));
