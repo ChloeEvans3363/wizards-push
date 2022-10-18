@@ -84,19 +84,16 @@ public class Player : MonoBehaviour
 
         if (Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.transform.position.y + 1 != transform.position.y)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, 1));
         }
 
         if (Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.transform.position.x + 1 != transform.position.x)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(1, 0));
         }
 
         if (Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.transform.position.x - 1 != transform.position.x)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(-1, 0));
 
         }
