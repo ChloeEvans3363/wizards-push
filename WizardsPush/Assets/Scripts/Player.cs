@@ -34,13 +34,15 @@ public class Player : MonoBehaviour
             if(box.transform.position.x == transform.position.x)
             {
                 // depending on if the box is to the right of the left of the player the box will move the direction to get closer
-                if (box.transform.position.y < transform.position.y - 1)
+                if (box.transform.position.y < transform.position.y - 1 && box.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y + 1, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(0, 1));
+
                 }
-                else if (box.transform.position.y > transform.position.y + 1)
+                else if (box.transform.position.y > transform.position.y + 1 && box.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y - 1, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(0, -1));
+
                 }
             }
 
@@ -48,13 +50,15 @@ public class Player : MonoBehaviour
             else if (box.transform.position.y == transform.position.y)
             {
                 // depending on if the box is above or below the player the box will move the direction to get closer
-                if (box.transform.position.x < transform.position.x - 1)
+                if (box.transform.position.x < transform.position.x - 1 && box.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x + 1, box.transform.position.y, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(1, 0));
+
                 }
-                else if(box.transform.position.x > transform.position.x + 1)
+                else if(box.transform.position.x > transform.position.x + 1 && box.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x - 1, box.transform.position.y, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(-1, 0));
+
                 }
             }
         }
@@ -70,26 +74,26 @@ public class Player : MonoBehaviour
             if (box.transform.position.x == transform.position.x)
             {
                 // depending on if the box is to the right of the left of the player the box will move the direction to get further
-                if (box.transform.position.y < transform.position.y)
+                if (box.transform.position.y < transform.position.y && box.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y - 1, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(0, -1));
                 }
-                else if (box.transform.position.y > transform.position.y)
+                else if (box.transform.position.y > transform.position.y && box.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y + 1, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(0, 1));
                 }
             }
             // If the box has the same y position then the x position will change to move the box further away
             else if (box.transform.position.y == transform.position.y)
             {
                 // depending on if the box is above or below the player the box will move the direction to get further
-                if (box.transform.position.x < transform.position.x)
+                if (box.transform.position.x < transform.position.x && box.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x - 1, box.transform.position.y, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(-1, 0));
                 }
-                else if (box.transform.position.x > transform.position.x)
+                else if (box.transform.position.x > transform.position.x && box.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
                 {
-                    box.transform.position = new Vector3(box.transform.position.x + 1, box.transform.position.y, box.transform.position.z);
+                    GameManager.instance.Move(box, new Vector2(1, 0));
                 }
             }
         }
