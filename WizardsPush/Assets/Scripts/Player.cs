@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public AudioManager AudioManager;
+
     public bool ValidateMove(Vector2 direction)
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
     // Pull
     public void Pull()
     {
+        //Play pull sound
+        AudioManager.playConditional(4, false);
+
         // Checks each box on the level
         foreach(GameObject box in GameManager.instance.GetBoxes())
         {
@@ -67,6 +72,9 @@ public class Player : MonoBehaviour
     // Push
     public void Push()
     {
+        //Play push sound
+        AudioManager.playConditional(3, false);
+
         // Checks each box on the level
         foreach (GameObject box in GameManager.instance.GetBoxes())
         {
