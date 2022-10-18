@@ -6789,6 +6789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bd5ffc14090d74fb6964c95c3ae6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1}
   AudioManager: {fileID: 790708999}
 --- !u!114 &1872327710
 MonoBehaviour:
