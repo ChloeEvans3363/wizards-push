@@ -7,8 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 direction = new Vector2(0, 1);
 
     public AudioManager AudioManager;
-
-    public bool ValidateMove(Vector2 direction)
     public bool ValidateMove(Vector2 directionToCheck)
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, directionToCheck);
