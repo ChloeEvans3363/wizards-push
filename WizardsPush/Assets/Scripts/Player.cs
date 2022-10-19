@@ -122,11 +122,11 @@ public class Player : MonoBehaviour
     public bool ValidateTeleport()
     {
         //moveDistance accounts for teleport
-        RaycastHit2D ray = Physics2D.Raycast((Vector2) transform.position + (direction * 2), direction);
+        Vector2 teleportTile = (Vector2)transform.position + (direction * 2);
 
-        GameObject otherObject = ray.collider.gameObject;
+        RaycastHit2D ray = Physics2D.Raycast(teleportTile, direction);
 
-        if (Vector2.Distance(ray.point, transform.position) > 0)
+        if (Vector2.Distance(ray.point, teleportTile) > 0 || ray.collider.gameObject && ray.collider.gameObject.GetComponent<FinishPoint>())
         {
             return true;
         }

@@ -19,34 +19,22 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             direction = new Vector2(-1, 0);
-            if (player.ValidateMove(direction))
-            {
-                MovePlayer();
-            }
+            MovePlayer();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             direction = new Vector2(0, 1);
-            if (player.ValidateMove(direction))
-            {
-                MovePlayer();
-            }
+            MovePlayer();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             direction = new Vector2(1, 0);
-            if (player.ValidateMove(direction))
-            {
-                MovePlayer();
-            }
+            MovePlayer();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             direction = new Vector2(0, -1);
-            if (player.ValidateMove(direction))
-            {
-                MovePlayer();
-            }
+            MovePlayer();
         }
     }
 
@@ -71,7 +59,10 @@ public class InputHandler : MonoBehaviour
     //helper methods
     public void MovePlayer()
     {
-        GameManager.instance.Move(player.gameObject, direction);
         player.SetDirection(direction);
+        if (player.ValidateMove(direction))
+        {
+            GameManager.instance.Move(player.gameObject, direction);
+        }
     }
 }
