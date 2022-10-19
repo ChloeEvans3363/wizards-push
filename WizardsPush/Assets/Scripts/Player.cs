@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
         GameObject otherObject = ray.collider.gameObject;
 
-        if (Vector2.Distance(ray.point, transform.position) > 1)
+        if (Vector2.Distance(ray.point, transform.position) > 1 || ray.collider.gameObject.GetComponent<FinishPoint>())
         {
             return true;
         }
