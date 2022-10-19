@@ -29,71 +29,50 @@ public class Player : MonoBehaviour
     // Pull
     public void Pull()
     {
-        //Play pull sound
-        AudioManager.playConditional(4, false);
-
-        // Checks each box on the level
-        foreach(GameObject box in GameManager.instance.GetBoxes())
-        {
-            // If the box has the same x position then the y position will change to move the box closer
-            if(box.transform.position.x == transform.position.x)
-            {
-                // depending on if the box is to the right of the left of the player the box will move the direction to get closer
-                if (box.transform.position.y < transform.position.y - 1 && box.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
-                {
-                    GameManager.instance.Move(box, new Vector2(0, 1));
-
-                }
-                else if (box.transform.position.y > transform.position.y + 1 && box.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
-                {
-                    GameManager.instance.Move(box, new Vector2(0, -1));
-
-                }
-            }
-
-            // If the box has the same y position then the x position will change to move the box closer
-            else if (box.transform.position.y == transform.position.y)
-            {
-                // depending on if the box is above or below the player the box will move the direction to get closer
-                if (box.transform.position.x < transform.position.x - 1 && box.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
-                {
-                    GameManager.instance.Move(box, new Vector2(1, 0));
-
-                }
-                else if(box.transform.position.x > transform.position.x + 1 && box.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
-                {
-                    GameManager.instance.Move(box, new Vector2(-1, 0));
-
-                }
-            }
-        }
-    }
-
-    // Test Pull rework. It works but the box will get pulled on top of the player
-    public void test()
-    {
         //Play push sound
         AudioManager.playConditional(3, false);
 
-        // Checks each box on the level
-        foreach (GameObject box in GameManager.instance.GetBoxes())
-        if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0,-1)))
+        // Moves the block down if the player is under the block
+        if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, -1));
+            // Checks if the block is moved it won't go on top of the player
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, 1));
+            GameObject otherObject = ray.collider.gameObject;
+
+            if (otherObject.transform.position.y - 1 != transform.position.y)
+                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, -1));
         }
 
+        // Moves the block up if the player is above the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
+            // Checks if the block is moved it won't go on top of the player
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, -1));
+            GameObject otherObject = ray.collider.gameObject;
+
+            if (otherObject.transform.position.y + 1 != transform.position.y)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, 1));
         }
 
+        // Moves the block right if the player is to the right of the block
         if (Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
+            // Checks if the block is moved it won't go on top of the player
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(-1, 0));
+            GameObject otherObject = ray.collider.gameObject;
+
+            if (otherObject.transform.position.x + 1 != transform.position.x)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(1, 0));
         }
 
+        // Moves the block left if the player is to the left of the block
         if (Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
+            // Checks if the block is moved it won't go on top of the player
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(1, 0));
+            GameObject otherObject = ray.collider.gameObject;
+
+            if (otherObject.transform.position.x - 1 != transform.position.x)
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(-1, 0));
 
         }

@@ -54,8 +54,7 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //player.Pull();
-            player.test();
+            player.Pull();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))

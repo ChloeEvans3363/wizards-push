@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+
+    public void SetPosition(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
     public bool ValidateMove(Vector2 direction)
     {
         Vector2 pos = transform.position;
