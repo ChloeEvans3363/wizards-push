@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(teleportTile, direction);
 
-        if (Vector2.Distance(ray.point, teleportTile) > 0 || ray.collider.gameObject && ray.collider.gameObject.GetComponent<FinishPoint>())
+        if (Vector2.Distance(ray.point, teleportTile) > 0)
         {
             return true;
         }
