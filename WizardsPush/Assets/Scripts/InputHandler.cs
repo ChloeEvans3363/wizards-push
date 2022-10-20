@@ -54,6 +54,11 @@ public class InputHandler : MonoBehaviour
         {
             player.Teleport();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            player.Swap();
+        }
     }
 
     //helper methods

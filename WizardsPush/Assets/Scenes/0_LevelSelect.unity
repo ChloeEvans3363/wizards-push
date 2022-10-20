@@ -936,16 +936,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Arrow Keys to Move
-
-    Number Keys for Talismans:
-
-    1 = Pull
-
-    2
-    = Push
-
-    3 = Teleport '
+  m_text: "Arrow Keys to Move\nNumber Keys for Talismans:\n1 = Pull (4 directions)\n2
+    = Push (4 directions)\n3 = Teleport \n4 = Swap (Swap with the block you are facing)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -106,6 +106,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Swap()
+    {
+        if(Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
+        {
+            Vector3 currentPosition = transform.position;
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
+            GameObject otherObject = ray.collider.gameObject;
+
+            transform.position = otherObject.transform.position;
+            otherObject.transform.position = currentPosition;
+        }
+    }
+
     public void SetDirection(Vector2 newDirection)
     {
         direction = newDirection;
