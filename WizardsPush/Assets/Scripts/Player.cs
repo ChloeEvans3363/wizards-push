@@ -106,14 +106,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Swap
     public void Swap()
     {
+        // Checks if there is a box in front of the player
         if(Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
         {
             Vector3 currentPosition = transform.position;
             RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
             GameObject otherObject = ray.collider.gameObject;
 
+            // Sets the player's position to the box's 
+            // And the box's to the players
             transform.position = otherObject.transform.position;
             otherObject.transform.position = currentPosition;
         }
