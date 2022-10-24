@@ -14,6 +14,11 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource m_MyAudioSource;
 
+    //textures for toggle button
+    public Texture2D soundOn;
+    public Texture2D soundOff;
+    Texture2D soundButton;
+
     //is sound enabled
     bool canPlay;
     //Detect when you use the toggle, ensures music isn’t played multiple times
@@ -70,6 +75,10 @@ public class AudioManager : MonoBehaviour
         canPlay = true;
         masterVolume = 0.7f;
         m_MyAudioSource.volume = masterVolume;
+
+        //set default toggle image
+        soundButton = soundOn;
+
     }
 
     void Update()
@@ -88,11 +97,20 @@ public class AudioManager : MonoBehaviour
     void OnGUI()
     {
         //Switch this toggle to activate and deactivate the parent GameObject
-        canPlay = GUI.Toggle(new Rect(10, 10, 100, 30), canPlay, "Play Music");
+        canPlay = GUI.Toggle(new Rect(10, 0, 162, 162), canPlay, soundButton, "label");
 
         //Detect if there is a change with the toggle
         if (GUI.changed)
         {
+            switch (canPlay)
+            {
+                case false:
+                    soundButton = soundOff;
+                    break;
+                case true:
+                    soundButton = soundOn;
+                    break;
+            }
             //Change to true to show that there was just a change in the toggle state
             m_ToggleChange = true;
         }

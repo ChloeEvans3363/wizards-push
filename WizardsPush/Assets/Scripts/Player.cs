@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     // Pull
     public void Pull()
     {
-        //Play push sound
-        AudioManager.playConditional(3, false);
+        //Play pull sound
+        AudioManager.playConditional(4, false);
 
         // Moves the block down if the player is under the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
     // Push
     public void Push()
     {
+        //Play push sound
+        AudioManager.playConditional(3, false);
         // Moves the block up if the player is under the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
