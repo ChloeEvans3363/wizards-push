@@ -1978,7 +1978,7 @@ Transform:
   m_Children:
   - {fileID: 265031028}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &335965271
 Tilemap:
@@ -2051,7 +2051,7 @@ Transform:
   - {fileID: 49853905}
   - {fileID: 533269738}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &481069058
 PrefabInstance:
@@ -2245,7 +2245,7 @@ Transform:
   - {fileID: 1276786375}
   - {fileID: 1594552133}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &661133632
 PrefabInstance:
@@ -2346,7 +2346,7 @@ MonoBehaviour:
   AudioManager: {fileID: 790708999}
   player: {fileID: 1872327702}
   finishPoints: 0
-  winText: {fileID: 0}
+  winText: {fileID: 1952503675}
   boxes: []
 --- !u!4 &790708998
 Transform:
@@ -2523,7 +2523,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &953111300
 PrefabInstance:
@@ -2710,7 +2710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1409265507
 PrefabInstance:
@@ -2873,7 +2873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6607155133793335030, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6607155133793335030, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2953,6 +2953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+--- !u!1 &1952503675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6607155135219226770, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+  m_PrefabInstance: {fileID: 1952503674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2125003238
 PrefabInstance:
   m_ObjectHideFlags: 0
