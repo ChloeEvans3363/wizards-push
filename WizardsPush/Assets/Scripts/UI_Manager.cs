@@ -200,19 +200,4 @@ public class UI_Manager : MonoBehaviour
             swapBox = null;
         }
     }
-
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //text.text = $"Pull: {player.PullUses}\nPush: {player.PushUses}\nTeleport: { player.TeleportUses}\nSwap: {player.SwapUses}";
-
-
-  
-    }
 }

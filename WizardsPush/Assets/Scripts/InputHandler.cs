@@ -16,6 +16,9 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //Debug.Log(player.transform.position);
+        //Debug.Log(player.transform.lossyScale.y);
         if (locked)
         {
             TurnDirection();
@@ -94,7 +97,7 @@ public class InputHandler : MonoBehaviour
 
     public void TurnDirection()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < player.transform.position.x - player.transform.lossyScale.x))
         {
             if (!player.stop)
             {
@@ -104,7 +107,7 @@ public class InputHandler : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).y > player.transform.position.y + player.transform.lossyScale.y))
         {
             if (!player.stop)
             {
@@ -113,7 +116,7 @@ public class InputHandler : MonoBehaviour
                 player.SetAnimation();
             }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > player.transform.position.x + player.transform.lossyScale.x))
         {
             if (!player.stop)
             {
@@ -122,7 +125,7 @@ public class InputHandler : MonoBehaviour
                 player.SetAnimation();
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < player.transform.position.y - player.transform.lossyScale.y))
         {
             if (!player.stop)
             {
