@@ -33,19 +33,22 @@ public class Player : MonoBehaviour
 
         if (Vector2.Distance(ray.point, transform.position) > 1)
         {
-            animator.SetFloat("Y", direction.y);
-            animator.SetFloat("X", direction.x);
             return true;
         }
         else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(directionToCheck))
         {
             GameManager.instance.Move(ray.collider.gameObject, directionToCheck);
-            animator.SetFloat("Y", direction.y);
-            animator.SetFloat("X", direction.x);
             return true;
         }
 
         return false;
+    }
+
+    // Sets the animations up for the player
+    public void SetAnimation()
+    {
+        animator.SetFloat("Y", direction.y);
+        animator.SetFloat("X", direction.x);
     }
 
     // Pull

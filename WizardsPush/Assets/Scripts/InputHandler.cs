@@ -16,25 +16,29 @@ public class InputHandler : MonoBehaviour
 
     public void MovementKeys()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             direction = new Vector2(-1, 0);
             MovePlayer();
+            player.SetAnimation();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             direction = new Vector2(0, 1);
             MovePlayer();
+            player.SetAnimation();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             direction = new Vector2(1, 0);
             MovePlayer();
+            player.SetAnimation();
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             direction = new Vector2(0, -1);
             MovePlayer();
+            player.SetAnimation();
         }
     }
 
