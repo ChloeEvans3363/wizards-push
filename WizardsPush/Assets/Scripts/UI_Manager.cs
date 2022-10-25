@@ -124,6 +124,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    // Highlights the boxes the player is able to push when they hover over the swap spell
     public void SwapHighlight()
     {
         if (Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>())
@@ -132,6 +133,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    //Removes the box highlights when the player is no longer hovering over the swap
     public void SwapExit()
     {
         if (Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>())
