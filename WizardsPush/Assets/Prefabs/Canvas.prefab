@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 6607155133833852288}
   - component: {fileID: 6607155133833852291}
   - component: {fileID: 8909833555708031114}
+  - component: {fileID: 2767925695933254782}
   m_Layer: 5
   m_Name: SwapBtn
   m_TagString: Untagged
@@ -445,6 +446,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2767925695933254782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607155134356919284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa212686f219f14983988d810e24f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIman: {fileID: 6607155133793335026}
+  textures:
+  - {fileID: 21300000, guid: ddffe7c11a3904a4e839ee4e6e1fa0a9, type: 3}
+  - {fileID: 21300000, guid: 37e9915bf4b1f0f4f8739b76efe07a30, type: 3}
+  - {fileID: 21300000, guid: 3d7ec837691666249b4b9e8a8f7e90a7, type: 3}
+  - {fileID: 21300000, guid: 7b7a65646e038754db2c2d291e8e3247, type: 3}
+  spellDex: 4
 --- !u!1 &6607155134368168459
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +689,7 @@ GameObject:
   - component: {fileID: 6607155135147553107}
   - component: {fileID: 6607155135147553106}
   - component: {fileID: 2183928055130847431}
+  - component: {fileID: 6453010914908988427}
   m_Layer: 5
   m_Name: PullBtn
   m_TagString: Untagged
@@ -724,7 +745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 18d6a2332669f5f40beec42aed013ab1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -835,6 +856,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &6453010914908988427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607155135147553109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa212686f219f14983988d810e24f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIman: {fileID: 6607155133793335026}
+  textures:
+  - {fileID: 21300000, guid: 1a353d9254264834e87524cca3fd0907, type: 3}
+  - {fileID: 21300000, guid: 85d57d1e6c106d74391ea9512cd84a06, type: 3}
+  - {fileID: 21300000, guid: 3b9c053986cd9da4cbf2d408f0d40725, type: 3}
+  - {fileID: 21300000, guid: b882a70ce748da84d932c0fbb3778749, type: 3}
+  spellDex: 1
 --- !u!1 &6607155135219226770
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +1022,7 @@ GameObject:
   - component: {fileID: 6607155134642310737}
   - component: {fileID: 6607155134642310736}
   - component: {fileID: 6607155134642310739}
+  - component: {fileID: 4635477707518882348}
   m_Layer: 5
   m_Name: TeleBtn
   m_TagString: Untagged
@@ -1103,6 +1144,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4635477707518882348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607155135220063730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa212686f219f14983988d810e24f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIman: {fileID: 6607155133793335026}
+  textures:
+  - {fileID: 21300000, guid: 8c07ec4359b5dfe4586bbca8ee9d0762, type: 3}
+  - {fileID: 21300000, guid: de44d1e0520da8f4485959d5374b291f, type: 3}
+  - {fileID: 21300000, guid: 2e645ed0df46999469d471ed24e55d3e, type: 3}
+  - {fileID: 21300000, guid: a2bb3f00f702e2040afe130e86073180, type: 3}
+  spellDex: 3
 --- !u!1 &6607155135323329830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1322,7 @@ GameObject:
   - component: {fileID: 6607155134181626112}
   - component: {fileID: 6607155134181626115}
   - component: {fileID: 2164543223567247907}
+  - component: {fileID: 4896687499523554860}
   m_Layer: 5
   m_Name: PushBtn
   m_TagString: Untagged
@@ -1428,6 +1489,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4896687499523554860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607155135657250250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa212686f219f14983988d810e24f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIman: {fileID: 6607155133793335026}
+  textures:
+  - {fileID: 21300000, guid: c65196c07aa76e044a6ad0f9f8217861, type: 3}
+  - {fileID: 21300000, guid: d910756b634594f44b5ee36494ce3e75, type: 3}
+  - {fileID: 21300000, guid: 9b529646a6681ae4e9317773f061e744, type: 3}
+  - {fileID: 21300000, guid: 685e1c63b48930d40a1c6e61aed37862, type: 3}
+  spellDex: 2
 --- !u!1 &6607155135663229796
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField] public Player player;
     [SerializeField] private TextMeshProUGUI text;
+    //private int[] spellUses = new int[3];
 
     public void usePull()
     {
@@ -28,6 +29,39 @@ public class UI_Manager : MonoBehaviour
     public void useSwap()
     {
         player.Swap();
+    }
+
+    /// <summary>
+    /// int i is the spell index, wil return the uses for that spell index
+    /// 1-pull
+    /// 2-push
+    /// 3-tele
+    /// 4-swap
+    /// </summary>
+    /// <param name="i"></param>
+    public int GetUses(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return player.PullUses;
+                break;
+
+            case 2:
+                return player.PushUses;
+                break;
+
+            case 3:
+                return player.TeleportUses;
+                break;
+
+            case 4:
+                return player.SwapUses;
+                break;
+            default:
+                return 0;
+                break;
+        }
     }
 
     // Highlights the boxes the player is able to pull when they hover over the pull spell
@@ -153,6 +187,9 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"Pull: {player.PullUses}\nPush: {player.PushUses}\nTeleport: { player.TeleportUses}\nSwap: {player.SwapUses}";
+        //text.text = $"Pull: {player.PullUses}\nPush: {player.PushUses}\nTeleport: { player.TeleportUses}\nSwap: {player.SwapUses}";
+
+
+  
     }
 }
