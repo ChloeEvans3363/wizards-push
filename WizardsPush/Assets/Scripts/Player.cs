@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
 
         if (Vector2.Distance(ray.point, transform.position) > 1)
         {
-            Debug.Log(direction);
             animator.SetFloat("Y", direction.y);
             animator.SetFloat("X", direction.x);
             return true;
@@ -36,7 +35,6 @@ public class Player : MonoBehaviour
         else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(directionToCheck))
         {
             GameManager.instance.Move(ray.collider.gameObject, directionToCheck);
-            Debug.Log(direction);
             animator.SetFloat("Y", direction.y);
             animator.SetFloat("X", direction.x);
             return true;
@@ -171,6 +169,11 @@ public class Player : MonoBehaviour
     public void SetDirection(Vector2 newDirection)
     {
         direction = newDirection;
+    }
+
+    public Vector2 GetDirection()
+    {
+        return direction;
     }
 
     public void Teleport()

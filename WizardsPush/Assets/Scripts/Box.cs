@@ -5,6 +5,14 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
 
+    public SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        if (GetComponent<SpriteRenderer>() != null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void SetPosition(Vector3 newPosition)
     {
         transform.position = newPosition;
@@ -26,5 +34,10 @@ public class Box : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ChangeColor(Color color)
+    {
+        spriteRenderer.color = color;
     }
 }
