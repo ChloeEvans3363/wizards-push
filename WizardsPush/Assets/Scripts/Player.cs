@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] private int swapUses;
     [SerializeField] private int teleportUses;
 
+    public int PullUses { get { return pullUses; } }
+    public int PushUses { get { return pushUses; } }
+    public int SwapUses { get { return swapUses; } }
+    public int TeleportUses { get { return teleportUses; } }
+
     public AudioManager AudioManager;
     public Animator animator;
 
