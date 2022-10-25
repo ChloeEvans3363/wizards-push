@@ -6,12 +6,26 @@ public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private Vector2 direction;
+    private bool locked;
+
+    private void Start()
+    {
+        locked = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        MovementKeys();
+        if (locked)
+        {
+            TurnDirection();
+        }
+        else
+        {
+            MovementKeys();
+        }
         Tailsmans();
+        LockPlayerMovement();
     }
 
     public void MovementKeys()
@@ -24,6 +38,7 @@ public class InputHandler : MonoBehaviour
                 MovePlayer();
                 player.SetAnimation();
             }
+
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
@@ -74,6 +89,59 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             player.Swap();
+        }
+    }
+
+    public void TurnDirection()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(-1, 0);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(0, 1);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(1, 0);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(0, -1);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+    }
+
+    public void LockPlayerMovement()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            locked = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            locked = false;
         }
     }
 
