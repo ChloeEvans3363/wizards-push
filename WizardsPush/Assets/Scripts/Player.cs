@@ -12,6 +12,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int teleportUses;
 
     public AudioManager AudioManager;
+    public Animator animator;
+
+    private void Start()
+    {
+        if (GetComponent<Animator>() != null)
+            animator = GetComponent<Animator>();
+    }
+
     public bool ValidateMove(Vector2 directionToCheck)
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, directionToCheck);
@@ -20,11 +28,17 @@ public class Player : MonoBehaviour
 
         if (Vector2.Distance(ray.point, transform.position) > 1)
         {
+            Debug.Log(direction);
+            animator.SetFloat("Y", direction.y);
+            animator.SetFloat("X", direction.x);
             return true;
         }
         else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(directionToCheck))
         {
             GameManager.instance.Move(ray.collider.gameObject, directionToCheck);
+            Debug.Log(direction);
+            animator.SetFloat("Y", direction.y);
+            animator.SetFloat("X", direction.x);
             return true;
         }
 
