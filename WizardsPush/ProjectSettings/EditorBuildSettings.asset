@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/3_NoSpell_3.unity
     guid: b74ee8409816c418ea9023eb06a7a349
   - enabled: 1
-    path: Assets/Scenes/4_Pull_Intro.unity
+    path: Assets/Scenes/6_Pull_Intro.unity
     guid: 5853ff758bbb442e8b9f45742ffc44c7
   - enabled: 1
     path: Assets/Scenes/5_Pull_Advanced.unity
