@@ -51,13 +51,12 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        pullUses--;
 
         //Play pull sound
         AudioManager.playConditional(4, false);
 
         //Variable that keeps track of how many blocks have been pulled
-        int blocksPulled = 0;
+        bool pulledBlock = false;
 
         // Moves the block down if the player is under the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
@@ -67,7 +66,10 @@ public class Player : MonoBehaviour
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.y - 1 != transform.position.y)
+            {
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, -1));
+                pulledBlock = true;
+            }
         }
 
         // Moves the block up if the player is above the block
@@ -78,7 +80,10 @@ public class Player : MonoBehaviour
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.y + 1 != transform.position.y)
+            {
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, 1));
+                pulledBlock = true;
+            }     
         }
 
         // Moves the block right if the player is to the right of the block
@@ -89,7 +94,10 @@ public class Player : MonoBehaviour
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.x + 1 != transform.position.x)
+            {
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(1, 0));
+                pulledBlock = true;
+            }
         }
 
         // Moves the block left if the player is to the left of the block
@@ -100,9 +108,15 @@ public class Player : MonoBehaviour
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.x - 1 != transform.position.x)
+            {
                 GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(-1, 0));
-
+                pulledBlock = true;
+            }
         }
+
+        //Don't consume any pull spell uses unless at least one block has been pulled
+        if (pulledBlock)
+            pullUses--;
     }
 
     // Push
@@ -113,7 +127,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        pushUses--;
+
+        //Keep track of whether or not a block is pushed in this attempt
+        bool pushedBlock = false;
 
         //Play push sound
         AudioManager.playConditional(3, false);
@@ -121,25 +137,32 @@ public class Player : MonoBehaviour
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, 1));
+            pushedBlock = true;
         }
 
         // Moves the block down if the player is above the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, -1));
+            pushedBlock = true;
         }
 
         // Moves the block left if the player is to the right of the block
         if (Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(-1, 0));
+            pushedBlock = true;
         }
 
         // Moves the block right if the player is to the left of the block
         if (Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
             GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(1, 0));
+            pushedBlock = true;
         }
+
+        if(pushedBlock)
+            pushUses--;
     }
 
     // Swap
@@ -150,7 +173,6 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        swapUses--;
 
         // Checks if there is a box in front of the player
         if (Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
@@ -163,6 +185,8 @@ public class Player : MonoBehaviour
             // And the box's to the players
             transform.position = otherObject.transform.position;
             otherObject.transform.position = currentPosition;
+            //Don't consume the spell unless it was a valid use
+            swapUses--;
         }
     }
 
@@ -183,10 +207,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        teleportUses--;
         if (ValidateTeleport())
         {
             GameManager.instance.Move(gameObject, direction * 2);
+            teleportUses--;
         }
     }
 
