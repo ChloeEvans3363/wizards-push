@@ -19,8 +19,11 @@ public class Player : MonoBehaviour
     public AudioManager AudioManager;
     public Animator animator;
 
+    public bool stop;
+
     private void Start()
     {
+        stop = false;
         if (GetComponent<Animator>() != null)
             animator = GetComponent<Animator>();
     }

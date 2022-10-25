@@ -18,27 +18,39 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            direction = new Vector2(-1, 0);
-            MovePlayer();
-            player.SetAnimation();
+            if (!player.stop)
+            {
+                direction = new Vector2(-1, 0);
+                MovePlayer();
+                player.SetAnimation();
+            }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            direction = new Vector2(0, 1);
-            MovePlayer();
-            player.SetAnimation();
+            if (!player.stop)
+            {
+                direction = new Vector2(0, 1);
+                MovePlayer();
+                player.SetAnimation();
+            }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            direction = new Vector2(1, 0);
-            MovePlayer();
-            player.SetAnimation();
+            if (!player.stop)
+            {
+                direction = new Vector2(1, 0);
+                MovePlayer();
+                player.SetAnimation();
+            }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            direction = new Vector2(0, -1);
-            MovePlayer();
-            player.SetAnimation();
+            if (!player.stop)
+            {
+                direction = new Vector2(0, -1);
+                MovePlayer();
+                player.SetAnimation();
+            }
         }
     }
 
