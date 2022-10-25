@@ -2937,6 +2937,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1}
+  pullUses: 2
+  pushUses: 0
+  swapUses: 0
+  teleportUses: 0
   AudioManager: {fileID: 790708999}
 --- !u!114 &1872327710
 MonoBehaviour:

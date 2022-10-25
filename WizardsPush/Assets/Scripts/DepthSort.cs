@@ -17,6 +17,6 @@ public class DepthSort : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mySpriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y);
+        mySpriteRenderer.sortingOrder = Mathf.FloorToInt(-transform.position.y);
     }
 }

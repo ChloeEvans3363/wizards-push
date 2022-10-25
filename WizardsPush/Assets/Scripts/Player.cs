@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Vector2 direction = new Vector2(0, 1);
 
+    [SerializeField] private int pullUses;
+    [SerializeField] private int pushUses;
+    [SerializeField] private int swapUses;
+    [SerializeField] private int teleportUses;
+
     public AudioManager AudioManager;
     public bool ValidateMove(Vector2 directionToCheck)
     {
@@ -29,8 +34,18 @@ public class Player : MonoBehaviour
     // Pull
     public void Pull()
     {
+        //Check if pull can be used, stop otherwise.
+        if(pullUses < 1)
+        {
+            return;
+        }
+        pullUses--;
+
         //Play pull sound
         AudioManager.playConditional(4, false);
+
+        //Variable that keeps track of how many blocks have been pulled
+        int blocksPulled = 0;
 
         // Moves the block down if the player is under the block
         if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
@@ -81,6 +96,13 @@ public class Player : MonoBehaviour
     // Push
     public void Push()
     {
+        //Check if push can be used, stop otherwise.
+        if (pushUses < 1)
+        {
+            return;
+        }
+        pushUses--;
+
         //Play push sound
         AudioManager.playConditional(3, false);
         // Moves the block up if the player is under the block
@@ -111,8 +133,15 @@ public class Player : MonoBehaviour
     // Swap
     public void Swap()
     {
+        //Check if swap can be used, stop otherwise.
+        if (swapUses < 1)
+        {
+            return;
+        }
+        swapUses--;
+
         // Checks if there is a box in front of the player
-        if(Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
+        if (Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
         {
             Vector3 currentPosition = transform.position;
             RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
@@ -132,6 +161,12 @@ public class Player : MonoBehaviour
 
     public void Teleport()
     {
+        //Check if teleport can be used, stop otherwise.
+        if (teleportUses < 1)
+        {
+            return;
+        }
+        teleportUses--;
         if (ValidateTeleport())
         {
             GameManager.instance.Move(gameObject, direction * 2);
