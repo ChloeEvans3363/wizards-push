@@ -11,6 +11,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     //private int[] spellUses = new int[3];
 
+    // used for the swap highlight. Saves the box so it isn't stuck as green after swapping
+    private GameObject swapBox;
+
     public void usePull()
     {
         player.Pull();
@@ -181,7 +184,8 @@ public class UI_Manager : MonoBehaviour
     {
         if (Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>())
         {
-            Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            swapBox = Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject;
+            swapBox.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
     }
@@ -189,10 +193,11 @@ public class UI_Manager : MonoBehaviour
     //Removes the box highlights when the player is no longer hovering over the swap
     public void SwapExit()
     {
-        if (Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>())
+        if(swapBox != null)
         {
-            Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            swapBox.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
+            swapBox = null;
         }
     }
 
