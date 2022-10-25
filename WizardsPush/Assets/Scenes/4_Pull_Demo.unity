@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+      propertyPath: m_text
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6607155135219226769, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -80
@@ -2306,7 +2310,7 @@ RectTransform:
   m_Children:
   - {fileID: 1254331819}
   m_Father: {fileID: 1175931591}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
