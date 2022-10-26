@@ -70,27 +70,27 @@ public class UI_Manager : MonoBehaviour
     // Highlights the boxes the player is able to pull when they hover over the pull spell
     public void PullHighlight()
     {
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
     }
@@ -98,27 +98,27 @@ public class UI_Manager : MonoBehaviour
     // Removes the box highlights when the player is no longer hovering over the pull
     public void PullExit()
     {
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
     }
@@ -126,27 +126,27 @@ public class UI_Manager : MonoBehaviour
     // Highlights the boxes the player is able to push when they hover over the push spell
     public void PushHighlight()
     {
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
+            Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
     }
@@ -154,27 +154,27 @@ public class UI_Manager : MonoBehaviour
     // Removes the box highlights when the player is no longer hovering over the push
     public void PushExit()
     {
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, -1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(0, 1), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(-1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
 
-        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            Physics2D.Raycast(player.transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
+            Physics2D.Raycast(player.transform.position, new Vector2(1, 0), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>().ChangeColor(Color.white);
             player.stop = false;
         }
     }
@@ -182,9 +182,9 @@ public class UI_Manager : MonoBehaviour
     // Highlights the boxes the player is able to push when they hover over the swap spell
     public void SwapHighlight()
     {
-        if (Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject.GetComponent<Box>())
+        if (Physics2D.Raycast(player.transform.position, player.GetDirection(), 100f, player.boxLayer).collider.gameObject.GetComponent<Box>())
         {
-            swapBox = Physics2D.Raycast(player.transform.position, player.GetDirection()).collider.gameObject;
+            swapBox = Physics2D.Raycast(player.transform.position, player.GetDirection(), 100f, player.boxLayer).collider.gameObject;
             swapBox.GetComponent<Box>().ChangeColor(Color.green);
             player.stop = true;
         }
