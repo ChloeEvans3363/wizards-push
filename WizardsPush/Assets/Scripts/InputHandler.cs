@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class InputHandler : MonoBehaviour
             MovementKeys();
         }
         Tailsmans();
+        MiscKeys();
         LockPlayerMovement();
     }
 
@@ -152,6 +154,19 @@ public class InputHandler : MonoBehaviour
         if (player.ValidateMove(direction))
         {
             GameManager.instance.Move(player.gameObject, direction);
+        }
+    }
+
+    public void MiscKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("0_LevelSelect");
         }
     }
 }
