@@ -19,8 +19,13 @@ public class Player : MonoBehaviour
     public AudioManager AudioManager;
     public Animator animator;
 
+    public bool stop;
+    public LayerMask boxLayer;
+
     private void Start()
     {
+        stop = false;
+        boxLayer = LayerMask.GetMask("Default");
         if (GetComponent<Animator>() != null)
             animator = GetComponent<Animator>();
     }
@@ -33,19 +38,22 @@ public class Player : MonoBehaviour
 
         if (Vector2.Distance(ray.point, transform.position) > 1)
         {
-            animator.SetFloat("Y", direction.y);
-            animator.SetFloat("X", direction.x);
             return true;
         }
         else if(otherObject.GetComponent<Box>() && otherObject.GetComponent<Box>().ValidateMove(directionToCheck))
         {
             GameManager.instance.Move(ray.collider.gameObject, directionToCheck);
-            animator.SetFloat("Y", direction.y);
-            animator.SetFloat("X", direction.x);
             return true;
         }
 
         return false;
+    }
+
+    // Sets the animations up for the player
+    public void SetAnimation()
+    {
+        animator.SetFloat("Y", direction.y);
+        animator.SetFloat("X", direction.x);
     }
 
     // Pull
@@ -64,57 +72,57 @@ public class Player : MonoBehaviour
         bool pulledBlock = false;
 
         // Moves the block down if the player is under the block
-        if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
             // Checks if the block is moved it won't go on top of the player
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, 1));
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer);
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.y - 1 != transform.position.y)
             {
-                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, -1));
+                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject, new Vector2(0, -1));
                 pulledBlock = true;
             }
         }
 
         // Moves the block up if the player is above the block
-        if (Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
             // Checks if the block is moved it won't go on top of the player
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, -1));
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer);
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.y + 1 != transform.position.y)
             {
-                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, 1));
+                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject, new Vector2(0, 1));
                 pulledBlock = true;
             }     
         }
 
         // Moves the block right if the player is to the right of the block
-        if (Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
             // Checks if the block is moved it won't go on top of the player
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(-1, 0));
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer);
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.x + 1 != transform.position.x)
             {
-                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(1, 0));
+                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject, new Vector2(1, 0));
                 pulledBlock = true;
             }
         }
 
         // Moves the block left if the player is to the left of the block
-        if (Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
             // Checks if the block is moved it won't go on top of the player
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(1, 0));
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer);
             GameObject otherObject = ray.collider.gameObject;
 
             if (otherObject.transform.position.x - 1 != transform.position.x)
             {
-                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(-1, 0));
+                GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject, new Vector2(-1, 0));
                 pulledBlock = true;
             }
         }
@@ -139,30 +147,30 @@ public class Player : MonoBehaviour
         //Play push sound
         AudioManager.playConditional(3, false);
         // Moves the block up if the player is under the block
-        if (Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
+        if (Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, 1)))
         {
-            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1)).collider.gameObject, new Vector2(0, 1));
+            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, 1), 100f, boxLayer).collider.gameObject, new Vector2(0, 1));
             pushedBlock = true;
         }
 
         // Moves the block down if the player is above the block
-        if (Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
+        if (Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(0, -1)))
         {
-            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1)).collider.gameObject, new Vector2(0, -1));
+            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(0, -1), 100f, boxLayer).collider.gameObject, new Vector2(0, -1));
             pushedBlock = true;
         }
 
         // Moves the block left if the player is to the right of the block
-        if (Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
+        if (Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(-1, 0)))
         {
-            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0)).collider.gameObject, new Vector2(-1, 0));
+            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(-1, 0), 100f, boxLayer).collider.gameObject, new Vector2(-1, 0));
             pushedBlock = true;
         }
 
         // Moves the block right if the player is to the left of the block
-        if (Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
+        if (Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>() && Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject.GetComponent<Box>().ValidateMove(new Vector2(1, 0)))
         {
-            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0)).collider.gameObject, new Vector2(1, 0));
+            GameManager.instance.Move(Physics2D.Raycast(transform.position, new Vector2(1, 0), 100f, boxLayer).collider.gameObject, new Vector2(1, 0));
             pushedBlock = true;
         }
 
@@ -180,10 +188,10 @@ public class Player : MonoBehaviour
         }
 
         // Checks if there is a box in front of the player
-        if (Physics2D.Raycast(transform.position, direction).collider.gameObject.GetComponent<Box>())
+        if (Physics2D.Raycast(transform.position, direction, 100f, boxLayer).collider.gameObject.GetComponent<Box>())
         {
             Vector3 currentPosition = transform.position;
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, direction, 100f, boxLayer);
             GameObject otherObject = ray.collider.gameObject;
 
             // Sets the player's position to the box's 

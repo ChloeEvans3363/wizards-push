@@ -4806,6 +4806,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 72788ddb6a15a9d4aa44dc8cd23c0074, type: 2}
