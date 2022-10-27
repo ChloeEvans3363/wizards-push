@@ -28,7 +28,7 @@ public class Box : MonoBehaviour
         Vector2 pos = transform.position;
         RaycastHit2D ray = Physics2D.Raycast(pos + direction, direction);
 
-        if (Vector2.Distance(ray.point, transform.position) > 1 || ray.collider.gameObject.GetComponent<FinishPoint>() || ray.collider.gameObject.tag == "Spike")
+        if (Vector2.Distance(ray.point, transform.position) > 1)
         {
             return true;
         }
@@ -41,3 +41,6 @@ public class Box : MonoBehaviour
         spriteRenderer.color = color;
     }
 }
+
+
+// grrrr bark bark bark 
