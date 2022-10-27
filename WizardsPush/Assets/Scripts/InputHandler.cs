@@ -7,19 +7,25 @@ public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private Vector2 direction;
-    private bool locked;
+    private bool keyboardLocked;
+    private bool mouseLocked;
 
     private void Start()
     {
-        locked = false;
+        keyboardLocked = false;
+        mouseLocked = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (locked)
+        if (keyboardLocked)
         {
-            TurnDirection();
+            TurnDirectionKeyboard();
+        }
+        else if (mouseLocked)
+        {
+            TurnDirectionMouse();
         }
         else
         {
@@ -27,7 +33,8 @@ public class InputHandler : MonoBehaviour
         }
         Tailsmans();
         MiscKeys();
-        LockPlayerMovement();
+        LockPlayerMovementKeyboard();
+        LockPlayerMovementMouse();
     }
 
     public void MovementKeys()
@@ -94,9 +101,9 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void TurnDirection()
+    public void TurnDirectionKeyboard()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < player.transform.position.x - player.transform.lossyScale.x))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (!player.stop)
             {
@@ -106,7 +113,7 @@ public class InputHandler : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).y > player.transform.position.y + player.transform.lossyScale.y))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (!player.stop)
             {
@@ -115,7 +122,7 @@ public class InputHandler : MonoBehaviour
                 player.SetAnimation();
             }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > player.transform.position.x + player.transform.lossyScale.x))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (!player.stop)
             {
@@ -124,7 +131,7 @@ public class InputHandler : MonoBehaviour
                 player.SetAnimation();
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < player.transform.position.y - player.transform.lossyScale.y))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (!player.stop)
             {
@@ -135,15 +142,68 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void LockPlayerMovement()
+    public void TurnDirectionMouse()
+    {
+        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x < player.transform.position.x - player.transform.lossyScale.x))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(-1, 0);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+
+        }
+        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).y > player.transform.position.y + player.transform.lossyScale.y))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(0, 1);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x > player.transform.position.x + player.transform.lossyScale.x))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(1, 0);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).y < player.transform.position.y - player.transform.lossyScale.y))
+        {
+            if (!player.stop)
+            {
+                direction = new Vector2(0, -1);
+                player.SetDirection(direction);
+                player.SetAnimation();
+            }
+        }
+    }
+
+    public void LockPlayerMovementKeyboard()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            locked = true;
+            keyboardLocked = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            locked = false;
+            keyboardLocked = false;
+        }
+    }
+
+    private void LockPlayerMovementMouse()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            mouseLocked = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            mouseLocked = false;
         }
     }
 
