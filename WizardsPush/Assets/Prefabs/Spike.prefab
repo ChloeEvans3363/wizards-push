@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1889505441623381564}
   - component: {fileID: 1889505441623381565}
   - component: {fileID: 1889505441623381566}
+  - component: {fileID: 6226258885923634656}
   m_Layer: 3
   m_Name: Spike
   m_TagString: Spike
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c5b20c4fff064145ba90b5986bfedd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9d0a0b770a7747b19b632defff7adfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,8 +104,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    pivot: {x: 0.5, y: 0.4}
+    oldSize: {x: 1, y: 1.171875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,3 +148,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   round: 1
+--- !u!114 &6226258885923634656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889505441623381567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52217843be4cd4f9a9b5de799d77c0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

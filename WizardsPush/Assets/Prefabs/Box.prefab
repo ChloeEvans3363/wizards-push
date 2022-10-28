@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8050602875309468377}
   - component: {fileID: 8050602875309468376}
   - component: {fileID: -5847722797794235050}
+  - component: {fileID: -2701636009067085031}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3f59dceae0f314d98096e7f766a8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
 --- !u!50 &8050602875309468376
 Rigidbody2D:
   serializedVersion: 4
@@ -160,3 +162,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   round: 1
+--- !u!114 &-2701636009067085031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050602875309468370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52217843be4cd4f9a9b5de799d77c0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
