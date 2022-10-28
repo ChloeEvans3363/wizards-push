@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Vector2 direction = new Vector2(0, 1);
+    [SerializeField] private Vector2 direction = new Vector2(0, -1);
 
     [SerializeField] private int pullUses;
     [SerializeField] private int pushUses;

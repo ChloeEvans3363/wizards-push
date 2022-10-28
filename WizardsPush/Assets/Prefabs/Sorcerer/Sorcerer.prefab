@@ -135,9 +135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bd5ffc14090d74fb6964c95c3ae6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1}
+  direction: {x: 0, y: -1}
+  pullUses: 0
+  pushUses: 0
+  swapUses: 0
+  teleportUses: 0
   AudioManager: {fileID: 0}
   animator: {fileID: 0}
+  stop: 0
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1578760552642750034
 MonoBehaviour:
   m_ObjectHideFlags: 0
