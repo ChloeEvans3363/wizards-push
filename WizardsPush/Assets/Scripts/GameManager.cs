@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int finishPoints;
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject[] boxes;
+    [SerializeField] private bool gameWon = false;
 
     public void Start()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         if(finishPoints == 0)
         {
             winText.SetActive(true);
+            gameWon = true;
         }
     }
 
@@ -50,5 +52,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] GetBoxes()
     {
         return boxes;
+    }
+
+    public bool GameWon()
+    {
+        return gameWon;
     }
 }

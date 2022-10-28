@@ -4305,6 +4305,7 @@ MonoBehaviour:
   finishPoints: 0
   winText: {fileID: 950788186}
   boxes: []
+  gameWon: 0
 --- !u!4 &790708998
 Transform:
   m_ObjectHideFlags: 0
@@ -4626,6 +4627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 35945403}
   direction: {x: 0, y: 0}
+  nextLevel: 8_Swap
 --- !u!4 &883336808
 Transform:
   m_ObjectHideFlags: 0

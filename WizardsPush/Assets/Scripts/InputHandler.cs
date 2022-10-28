@@ -7,6 +7,7 @@ public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private Vector2 direction;
+    [SerializeField] private string nextLevel = null;
     private bool keyboardLocked;
     private bool mouseLocked;
 
@@ -219,14 +220,23 @@ public class InputHandler : MonoBehaviour
 
     public void MiscKeys()
     {
+        //restart level
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        //main menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("0_LevelSelect");
+        }
+
+        //next level
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.instance.GameWon() && nextLevel != null)
+        {
+            Debug.Log(nextLevel);
+            SceneManager.LoadScene(nextLevel);
         }
     }
 }

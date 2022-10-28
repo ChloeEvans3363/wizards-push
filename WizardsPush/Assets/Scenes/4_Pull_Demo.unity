@@ -2009,6 +2009,7 @@ MonoBehaviour:
   finishPoints: 0
   winText: {fileID: 5680879}
   boxes: []
+  gameWon: 0
 --- !u!4 &790708998
 Transform:
   m_ObjectHideFlags: 0
@@ -2221,6 +2222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 997289572}
   direction: {x: 0, y: 0}
+  nextLevel: 5_Pull_Intro
 --- !u!4 &883336808
 Transform:
   m_ObjectHideFlags: 0
@@ -2482,7 +2484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8050602875309468373, guid: 78e527bba2b53944099825aacc70f681, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8050602875309468373, guid: 78e527bba2b53944099825aacc70f681, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2920,7 +2922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 788425046456167586, guid: 5d6e0816c2ef9ea4a95a3a36922b9c63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 788425046456167586, guid: 5d6e0816c2ef9ea4a95a3a36922b9c63, type: 3}
       propertyPath: m_LocalPosition.y

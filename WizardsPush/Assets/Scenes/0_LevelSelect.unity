@@ -606,7 +606,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 9_All
+          m_StringArgument: 11_SingleSwap
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &287579931
@@ -740,7 +740,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 9_All
+          m_StringArgument: 10_T_S
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &311282911
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 9 - Hard
+  m_text: 'Level 9 - Medium
 
 '
   m_isRightToLeft: 0
@@ -2274,6 +2274,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Arrow Keys to Move
 
+
     Number Keys for Talismans:
 
     1 = Pull (4 directions)
@@ -2284,7 +2285,17 @@ MonoBehaviour:
     3 = Teleport (2 tiles ahead if empty)
 
     4 = Swap
-    (with the box you are facing)'
+    (with the box you are facing)
+
+
+    Space = Next Level
+
+    Esc = Main Menu
+
+    R
+    = Restart
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2323,7 +2334,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3709,7 +3720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.8}
+  m_AnchoredPosition: {x: 0, y: 4.799988}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944676911
@@ -4138,7 +4149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 10 - Medium
+  m_text: 'Level 10 - Hard
 
 '
   m_isRightToLeft: 0

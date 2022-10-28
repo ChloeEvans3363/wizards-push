@@ -2685,6 +2685,7 @@ MonoBehaviour:
   finishPoints: 0
   winText: {fileID: 1952503675}
   boxes: []
+  gameWon: 0
 --- !u!4 &790708998
 Transform:
   m_ObjectHideFlags: 0
@@ -2847,6 +2848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1872327709}
   direction: {x: 0, y: 0}
+  nextLevel: 11_SingleSwap
 --- !u!4 &883336808
 Transform:
   m_ObjectHideFlags: 0
@@ -3283,7 +3285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: pushUses
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: swapUses
@@ -3295,7 +3297,7 @@ PrefabInstance:
       objectReference: {fileID: 790708999}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: teleportUses
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750036, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: m_RootOrder

@@ -2353,23 +2353,23 @@ Transform:
   - {fileID: 957609003}
   - {fileID: 560738577}
   - {fileID: 359317314}
+  - {fileID: 376117053}
   - {fileID: 1200495193}
   - {fileID: 152186546}
   - {fileID: 826322499}
-  - {fileID: 376117053}
-  - {fileID: 1179636920}
   - {fileID: 841459901}
+  - {fileID: 1179636920}
+  - {fileID: 2026714588}
   - {fileID: 1101871227}
   - {fileID: 718227310}
-  - {fileID: 2026714588}
   - {fileID: 1461666090}
+  - {fileID: 1534845400}
   - {fileID: 1408133083}
   - {fileID: 1938320349}
   - {fileID: 124060419}
-  - {fileID: 1534845400}
+  - {fileID: 715543387}
   - {fileID: 290122690}
   - {fileID: 248320403}
-  - {fileID: 715543387}
   - {fileID: 58910485}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -4775,15 +4775,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: pullUses
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: pushUses
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: swapUses
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: AudioManager
@@ -4791,7 +4791,7 @@ PrefabInstance:
       objectReference: {fileID: 790708999}
     - target: {fileID: 1578760552642750033, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: teleportUses
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1578760552642750036, guid: 8f471f6a8787ab24caca16c1a6e05e9b, type: 3}
       propertyPath: m_RootOrder
