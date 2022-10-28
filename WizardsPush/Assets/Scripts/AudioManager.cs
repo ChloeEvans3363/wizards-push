@@ -97,7 +97,7 @@ public class AudioManager : MonoBehaviour
     void OnGUI()
     {
         //Switch this toggle to activate and deactivate the parent GameObject
-        canPlay = GUI.Toggle(new Rect(10, 0, 162, 162), canPlay, soundButton, "label");
+        canPlay = GUI.Toggle(new Rect(10, 0, Screen.width / 15, Screen.width / 15), canPlay, soundButton, "label");
 
         //Detect if there is a change with the toggle
         if (GUI.changed)
