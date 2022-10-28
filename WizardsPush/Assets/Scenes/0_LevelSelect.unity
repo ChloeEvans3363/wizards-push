@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 11 - Insane
+  m_text: 'Level 11 - Very Hard
 
 '
   m_isRightToLeft: 0
