@@ -4339,7 +4339,6 @@ MonoBehaviour:
   pushSpell: {fileID: 8300000, guid: 1b43b0b2d6193d244a8d8421f7fc49a6, type: 3}
   pullSpell: {fileID: 8300000, guid: ee135e66d91965e4cba5d82fca6c8c2e, type: 3}
   walkPush: {fileID: 8300000, guid: 8bc685fd9f0765e4ba881c87f3941552, type: 3}
-  music: {fileID: 8300000, guid: a586eedae47780b4abd97820d6e51965, type: 3}
   m_MyAudioSource: {fileID: 790709000}
   soundOn: {fileID: 2800000, guid: 302522184a866ca42a6538042582b77b, type: 3}
   soundOff: {fileID: 2800000, guid: 68826834196dbe949a9b1f8dca4cc03e, type: 3}
@@ -4756,7 +4755,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
       propertyPath: m_text
-      value: 7
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607155134763321807, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88b0c1fb639c20147950aa6bc5d81934, type: 3}

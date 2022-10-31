@@ -71,12 +71,12 @@ public class AudioManagerMenu : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("Music") != null)
         {
-            Debug.Log("yeahj");
+           
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
         }
         else
         {
-            Debug.Log("huh");
+           
         }
 
     }

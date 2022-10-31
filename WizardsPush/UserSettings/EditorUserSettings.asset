@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5152040306540f59580d5b71487a0b4415164c2f752c70367e714c67e6e1626f
+      value: 0206510404505b5a590c552642775d1414154a7f787f2234757f4964e6b3673d
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 560503025300590b0f585c2042775e4945161d7c2f7b7236287f4c67e6e2356d
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5354505657070a090b0b5f2040775b124f16197d757a7e632c714e64b3b3636b
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 0754010254570d59555d597a40770a404e4e4b2f787a72367d784b30b3b16d3e
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 01060003000d5d0b54565d7413770e481316417a7e7b23327d7f1c64e3b36061
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 5707025f56060d5d550f5d71127b0f4443154e7d7f7d7e677c7f186bb7e5323b
-      flags: 0
-    RecentlyUsedSceneGuid-6:
-      value: 50075150040d5f0d0b0a0a7649770f484616482e7e2e75637e281f32b1b33639
-      flags: 0
-    RecentlyUsedSceneGuid-7:
-      value: 5700060457020c0b5f0f5d7149775a41454e4b722a7d2269787c1e35e6b26469
-      flags: 0
-    RecentlyUsedSceneGuid-8:
       value: 50060d0000000c035d5a59211477084917161a7b2d7070322f7d4a65b2b1606f
       flags: 0
-    RecentlyUsedSceneGuid-9:
+    RecentlyUsedSceneGuid-2:
+      value: 5700060457020c0b5f0f5d7149775a41454e4b722a7d2269787c1e35e6b26469
+      flags: 0
+    RecentlyUsedSceneGuid-3:
       value: 5753035456560d030b565c2411770b134e151b737b7f7736797b4b35e7b23039
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 515752035050500b080f5d7646250e44141648282a7824672e7c4f6ab0b06760
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 01540356030c595d095b097616220944134e417a7a7171682b784d37b5e63768
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5152040306540f59580d5b71487a0b4415164c2f752c70367e714c67e6e1626f
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 560503025300590b0f585c2042775e4945161d7c2f7b7236287f4c67e6e2356d
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 5001565551065e5a085b0e744977071312154b7c2f2a7e65782f4960b0e36c3a
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5354505657070a090b0b5f2040775b124f16197d757a7e632c714e64b3b3636b
       flags: 0
     UnityRemoteCompression:
       value: 337f73
