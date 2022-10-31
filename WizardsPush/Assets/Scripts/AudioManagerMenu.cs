@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManagerMenu : MonoBehaviour
 {
@@ -36,8 +37,12 @@ public class AudioManagerMenu : MonoBehaviour
         }
     }
 
+
     void Start()
     {
+       
+      
+
         //Fetch the AudioSource from the GameObject
         m_MyAudioSource = GetComponent<AudioSource>();
         //Ensure the toggle is set to true for the music to play at start-up
@@ -63,6 +68,12 @@ public class AudioManagerMenu : MonoBehaviour
             //Ensure audio doesn’t play more than once
             m_ToggleChange = false;
         }
+
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+        }
+
     }
 
     void OnGUI()

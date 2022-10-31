@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip pushSpell;
     public AudioClip pullSpell;
     public AudioClip walkPush;
-    public AudioClip music;
 
     public AudioSource m_MyAudioSource;
 
@@ -80,10 +79,6 @@ public class AudioManager : MonoBehaviour
         //set default toggle image
         soundButton = soundOn;
 
-        m_MyAudioSource.loop = true;
-        m_MyAudioSource.clip = music;
-        m_MyAudioSource.Play();
-        m_MyAudioSource.loop = false;
 
     }
 
