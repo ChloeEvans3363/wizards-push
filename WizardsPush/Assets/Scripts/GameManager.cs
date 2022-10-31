@@ -43,6 +43,18 @@ public class GameManager : MonoBehaviour
         {
             winText.SetActive(true);
             gameWon = true;
+           
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (gameWon)
+        {
+            if (GUI.Button(new Rect(380, 220, 200, 100), "Next Level"))
+            {
+                FindObjectOfType<Progression>().NextLevel();
+            }
         }
     }
 
