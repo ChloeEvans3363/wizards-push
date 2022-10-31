@@ -20,6 +20,11 @@ public class Progression : MonoBehaviour
         changer = null;
     }
 
+    public void ChangeLvlNum(int i)
+    {
+        currentLevel = i;
+    }
+
     public void NextLevel()
     {
         if (FindObjectOfType<SceneChanger>() != null)
@@ -28,7 +33,8 @@ public class Progression : MonoBehaviour
         }
         if (changer != null)
         {
-            switch (currentLevel + 1)
+            currentLevel++;
+            switch (currentLevel)
             {
                 case 1:
                     changer.ChangeScene("1_OpeningLevel");
@@ -60,7 +66,9 @@ public class Progression : MonoBehaviour
                 case 10:
                     changer.ChangeScene("10_T_S");
                     break;
-
+                case 11:
+                    changer.ChangeScene("11_SingleSwap");
+                    break;
             }
         }
       
