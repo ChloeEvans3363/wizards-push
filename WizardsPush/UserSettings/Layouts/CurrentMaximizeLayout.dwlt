@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 24941
+  controlID: 36969
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 300}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
-  controlID: 24942
+  controlID: 36970
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 24943
+  controlID: 36971
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24847
+  controlID: 36972
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d006ffffbe08ffffd008ffff080affff820bffff940bffffc80cffff380effffac0fffffbe0fffff4010ffffa611ffffb811ffffec11ffffbe14ffffd014ffffca15ffff1c17ffff501affff321cffff441cffffbc1cffff2c1effff3e1effffbe1effff6020ffff7220ffff0c21ffff5022ffff6222ffff3423ffff6c80ffff0283ffff5e84fffffe85ffff7a87ffff6089ffff928affff0c8cffffcec6ffff4ed4ffff66daffff1ef3ffffbef6ffff26fbffffba7d00000c7e000090990000e299000004c5000056c50000
+      m_ExpandedIDs: 6aa6fcff14a8fcff16a8fcfffc30fdffdc43fdff9e56fdff906ffdff0884fdffae98fdfffeaafdffe0bdfdffc4d0fdff92e7fdff82f9fdff300dfeff3c1ffeff0a34feff9648feff1cbbfeffd8defeff82e4feffd006ffffbe08ffffd008ffff080affff820bffff940bffffc80cffff380effffac0fffffbe0fffff4010ffffa611ffffb811ffffec11ffffbe14ffffd014ffffca15ffff1c17ffff501affff321cffff441cffffbc1cffff2c1effff3e1effffbe1effff6020ffff7220ffff0c21ffff5022ffff6222ffff3423ffff6c80ffff0283ffff5e84fffffe85ffff7a87ffff6089ffff928affff0c8cffffcec6ffff4ed4ffff66daffff1ef3ffffbef6ffff26fbffffba7d00000c7e000090990000e299000004c5000056c5000064350100d23501003ebe0100acbe0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -397,8 +397,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -98.666626, y: -26}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -906,10 +906,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1.3333334
-    y: 624.6667
-    width: 1169
-    height: 733.00006
+    x: 0
+    y: 874
+    width: 1992.3334
+    height: 485.00006
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

@@ -2538,6 +2538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioManager: {fileID: 790708999}
+  buttonTx: {fileID: 2800000, guid: 3d80a72fc30aba44b93d471c008faeb9, type: 3}
   player: {fileID: 1872327702}
   finishPoints: 0
   winText: {fileID: 1952503675}

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public AudioManager AudioManager;
 
+    public Texture buttonTx;
+
     public void Awake()
     {
         instance = this;
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameWon)
         {
-            if (GUI.Button(new Rect(380, 220, 200, 100), "Next Level"))
+            if (GUI.Button(new Rect(1920/2, 1080/2, 300, 160), buttonTx, "label")) 
             {
                 FindObjectOfType<Progression>().NextLevel();
             }

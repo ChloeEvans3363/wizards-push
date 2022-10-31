@@ -107,9 +107,19 @@ public class AudioManager : MonoBehaviour
             {
                 case false:
                     soundButton = soundOff;
+                    if (GameObject.FindGameObjectWithTag("Music") != null)
+                    {
+
+                        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+                    }
                     break;
                 case true:
                     soundButton = soundOn;
+                    if (GameObject.FindGameObjectWithTag("Music") != null)
+                    {
+
+                        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+                    }
                     break;
             }
             //Change to true to show that there was just a change in the toggle state
