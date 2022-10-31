@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+        }
+
         finishPoints = GameObject.FindObjectsOfType<FinishPoint>().Length;
         boxes = GameObject.FindGameObjectsWithTag("Box");
     }
