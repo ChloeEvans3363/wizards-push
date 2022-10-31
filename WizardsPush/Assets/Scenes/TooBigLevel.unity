@@ -6753,6 +6753,7 @@ MonoBehaviour:
   finishPoints: 0
   winText: {fileID: 873311628}
   boxes: []
+  gameWon: 0
 --- !u!4 &790708998
 Transform:
   m_ObjectHideFlags: 0
@@ -6785,7 +6786,10 @@ MonoBehaviour:
   pushSpell: {fileID: 8300000, guid: 1b43b0b2d6193d244a8d8421f7fc49a6, type: 3}
   pullSpell: {fileID: 8300000, guid: ee135e66d91965e4cba5d82fca6c8c2e, type: 3}
   walkPush: {fileID: 8300000, guid: 8bc685fd9f0765e4ba881c87f3941552, type: 3}
+  music: {fileID: 8300000, guid: a586eedae47780b4abd97820d6e51965, type: 3}
   m_MyAudioSource: {fileID: 790709000}
+  soundOn: {fileID: 0}
+  soundOff: {fileID: 0}
 --- !u!82 &790709000
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7048,6 +7052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1872327709}
   direction: {x: 0, y: 0}
+  nextLevel: 
 --- !u!4 &883336808
 Transform:
   m_ObjectHideFlags: 0
@@ -7675,7 +7680,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1}
+  pullUses: 0
+  pushUses: 0
+  swapUses: 0
+  teleportUses: 0
   AudioManager: {fileID: 790708999}
+  animator: {fileID: 0}
+  stop: 0
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1872327710
 MonoBehaviour:
   m_ObjectHideFlags: 0

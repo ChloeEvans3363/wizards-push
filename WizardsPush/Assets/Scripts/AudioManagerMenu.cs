@@ -1,16 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-using UnityEngine;
-
-public class AudioManager : MonoBehaviour
+public class AudioManagerMenu : MonoBehaviour
 {
-    public AudioClip targetDown;
-    public AudioClip targetUp;
-    public AudioClip pushSpell;
-    public AudioClip pullSpell;
-    public AudioClip walkPush;
+    public AudioClip music;
 
     public AudioSource m_MyAudioSource;
 
@@ -26,49 +21,28 @@ public class AudioManager : MonoBehaviour
 
     float masterVolume;
 
-    public void playConditional(int clipIndex, bool looped)
+    public void playConditional()
     {
-       
+
         if (canPlay)
         {
-            AudioClip sound = null;
-            
-            switch (clipIndex)
-            {
-                case 1:
-                    sound = targetDown;
-                        break;
-                case 2:
-                    sound = targetUp;
-                        break;
-                case 3:
-                    sound = pushSpell;
-                        break;
-                case 4:
-                    sound = pullSpell;
-                        break;
-                case 5:
-                    sound = walkPush;
-                        break;
-            }
+            AudioClip sound = music;
 
-            switch (looped)
-            {
-                case true:
-                    m_MyAudioSource.loop = false;
-                    m_MyAudioSource.PlayOneShot(sound, masterVolume);
-                    break;
+            m_MyAudioSource.clip = music;
 
-                case false:
-                    m_MyAudioSource.loop = true;
-                    m_MyAudioSource.PlayOneShot(sound);
-                    break;
-            }
+            m_MyAudioSource.loop = true;
+
+            m_MyAudioSource.Play();
+
         }
     }
 
+
     void Start()
     {
+       
+      
+
         //Fetch the AudioSource from the GameObject
         m_MyAudioSource = GetComponent<AudioSource>();
         //Ensure the toggle is set to true for the music to play at start-up
@@ -79,12 +53,13 @@ public class AudioManager : MonoBehaviour
         //set default toggle image
         soundButton = soundOn;
 
+        playConditional();
 
     }
 
     void Update()
     {
-       
+
         //Check if you just set the toggle to false
         if (canPlay == false && m_ToggleChange == true)
         {
@@ -93,6 +68,17 @@ public class AudioManager : MonoBehaviour
             //Ensure audio doesn’t play more than once
             m_ToggleChange = false;
         }
+
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            Debug.Log("yeahj");
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+        }
+        else
+        {
+            Debug.Log("huh");
+        }
+
     }
 
     void OnGUI()

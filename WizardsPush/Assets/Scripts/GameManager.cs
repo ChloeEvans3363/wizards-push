@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Music") != null)
+        {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+        }
+
         finishPoints = GameObject.FindObjectsOfType<FinishPoint>().Length;
         boxes = GameObject.FindGameObjectsWithTag("Box");
     }
@@ -38,6 +43,18 @@ public class GameManager : MonoBehaviour
         {
             winText.SetActive(true);
             gameWon = true;
+           
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (gameWon)
+        {
+            if (GUI.Button(new Rect(380, 220, 200, 100), "Next Level"))
+            {
+                FindObjectOfType<Progression>().NextLevel();
+            }
         }
     }
 
