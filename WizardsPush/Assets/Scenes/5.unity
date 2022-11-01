@@ -4306,7 +4306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 997289572}
   direction: {x: 0, y: 0}
-  nextLevel: 6_Pull_Advanced
+  nextLevel: 6
 --- !u!4 &883336808
 Transform:
   m_ObjectHideFlags: 0
